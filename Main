@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package u2segundoexamen;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/**
+ *
+ * @author DOMINGUEZ CAZALES JENNIFER
+ */
+public class U2SegundoExamen {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         List<String> impar = new ArrayList<String>();
+         int cont1=0;
+         boolean mm=true;
+       pedir(impar,cont1,mm);
+
+    }
+    public static void pedir(List im,int contador,boolean rr){
+        Scanner leer=new Scanner(System.in);
+        String cosa;
+        if (rr) {
+          if (contador<4) {
+           System.out.println("Ingresa los valores"); 
+           cosa=leer.nextLine();
+           im.add(cosa);
+           pedir(im,contador+1,rr);
+            }
+            if(contador==4){
+                System.out.println("Ya ingresaste los cuatros valores");
+                rr=false;
+            }  
+        }
+        if(rr==false&&contador==4){
+            contador=contador-1;
+            System.out.println("Los valores desde el ultimo hasta el primero");
+        }
+        if(rr==false){
+            //System.out.println("si entra a mostrar");
+            //System.out.println("el valor de contador "+contador);
+            if (contador>=0) {
+                System.out.print(im.get(contador)+"    ");
+             pedir(im,contador-1,rr);
+            }
+        }
+        
+        
+    }
+}
+ 
